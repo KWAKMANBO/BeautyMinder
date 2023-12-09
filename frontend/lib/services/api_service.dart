@@ -24,7 +24,7 @@ class APIService {
     });
 
     try {
-      final response = await DioClient.sendRequest('POST', url, body: formData);
+      final response = await DioClient.sendRequest('GET', url, body: formData);
       if (response.statusCode == 200) {
         await SharedService.setLoginDetails(loginResponseJson(response.data));
         return Result.success(true);
